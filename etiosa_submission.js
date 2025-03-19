@@ -11,28 +11,40 @@ exports.reverseString = function (s) {
 };
 
 exports.isPalindrome = function (s) {
-  const ans = s.length;
-  if (ans <= 1) return true;
+  // Remove non-alphanumeric characters and convert to lowercase
+  const cleanedString = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
-  let left = 0;
-  let right = s.length - 1;
+  // Check if the cleaned string is the same forwards and backwards
+  const reversedString = cleanedString.split("").reverse().join("");
 
-  while (left < right) {
-    if (s[left] !== s[right]) {
-      return false;
-    }
-    left++;
-    right--;
-  }
-  return true;
+  return cleanedString === reversedString;
 };
 
 exports.fibonacci = function (n) {
-  const ans = "";
+  if (n < 0) return null;
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+
+  let a = 0,
+    b = 1,
+    temp;
+  for (let i = 2; i <= n; i++) {
+    temp = a + b;
+    a = b;
+    b = temp;
+  }
+  return b;
 };
 
 exports.factorial = function (n) {
-  const ans = "";
+  if (n < 0) return null;
+  if (n === 0) return 1;
+
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
 };
 
 exports.sumArray = function (arr) {
@@ -44,17 +56,72 @@ exports.maxArray = function (arr) {
 };
 
 exports.mergeSortedArrays = function (arr1, arr2) {
-  const ans = "";
+  let mergedArray = [];
+  let i = 0,
+    j = 0;
+
+  // Use two pointers to traverse both arrays
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      mergedArray.push(arr1[i]);
+      i++;
+    } else {
+      mergedArray.push(arr2[j]);
+      j++;
+    }
+  }
+
+  // Add remaining elements from arr1
+  while (i < arr1.length) {
+    mergedArray.push(arr1[i]);
+    i++;
+  }
+
+  // Add remaining elements from arr2
+  while (j < arr2.length) {
+    mergedArray.push(arr2[j]);
+    j++;
+  }
+
+  return mergedArray;
 };
 
 exports.uniqueArray = function (arr) {
-  const ans = "";
+  let uniqueArr = [];
+  let seen = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!seen[arr[i]]) {
+      uniqueArr.push(arr[i]);
+      seen[arr[i]] = true;
+    }
+  }
+
+  return uniqueArr;
 };
 
 exports.countVowels = function (s) {
-  const ans = "";
+  const vowels = ["a", "e", "i", "o", "u"];
+  let count = 0;
+
+  // Convert the string to lowercase to handle case-insensitivity
+  s = s.toLowerCase();
+
+  // Iterate through each character in the string
+  for (let char of s) {
+    // Check if the character is a vowel
+    if (vowels.includes(char)) {
+      count++;
+    }
+  }
+
+  return count;
 };
 
 exports.evenOrOdd = function (n) {
-  const ans = "";
+  if (n % 2 === 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
 };
