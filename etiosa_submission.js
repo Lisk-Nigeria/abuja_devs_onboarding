@@ -11,10 +11,8 @@ exports.reverseString = function (s) {
 };
 
 exports.isPalindrome = function (s) {
-  // Remove non-alphanumeric characters and convert to lowercase
   const cleanedString = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
 
-  // Check if the cleaned string is the same forwards and backwards
   const reversedString = cleanedString.split("").reverse().join("");
 
   return cleanedString === reversedString;
@@ -60,7 +58,6 @@ exports.mergeSortedArrays = function (arr1, arr2) {
   let i = 0,
     j = 0;
 
-  // Use two pointers to traverse both arrays
   while (i < arr1.length && j < arr2.length) {
     if (arr1[i] < arr2[j]) {
       mergedArray.push(arr1[i]);
@@ -71,13 +68,11 @@ exports.mergeSortedArrays = function (arr1, arr2) {
     }
   }
 
-  // Add remaining elements from arr1
   while (i < arr1.length) {
     mergedArray.push(arr1[i]);
     i++;
   }
 
-  // Add remaining elements from arr2
   while (j < arr2.length) {
     mergedArray.push(arr2[j]);
     j++;
@@ -104,12 +99,9 @@ exports.countVowels = function (s) {
   const vowels = ["a", "e", "i", "o", "u"];
   let count = 0;
 
-  // Convert the string to lowercase to handle case-insensitivity
   s = s.toLowerCase();
 
-  // Iterate through each character in the string
   for (let char of s) {
-    // Check if the character is a vowel
     if (vowels.includes(char)) {
       count++;
     }
