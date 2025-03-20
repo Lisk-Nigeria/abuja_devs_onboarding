@@ -33,7 +33,7 @@ exports.fibonacci = function (n) {
 exports.factorial = function (n) {
     // Your implementation here
     let sum = n;
-    for (let index = n-1; index >= 1; index--) {
+    for (let index = n - 1; index >= 1; index--) {
         sum = sum * index;
     }
     return sum;
@@ -53,28 +53,46 @@ exports.maxArray = function (arr) {
     // Your implementation here
     if (arr.length === 0) return undefined;
     let max = arr[0];
-    for (let index = 1; index <= arr.length - 1    ; index++) {
+    for (let index = 1; index <= arr.length - 1; index++) {
         if (arr[index] > max) max = arr[index];
     }
     return max;
 };
 
 exports.mergeSortedArrays = function (arr1, arr2) {
-    // Your implementation here
-    const short = arr1.length < arr2.length ? arr1 : arr2;
+    // Forgive the crude implementation, you did say to optimize for time.😩
+    const short = arr1.length <= arr2.length ? arr1 : arr2;
     const long = arr1.length > arr2.length ? arr1 : arr2;
-    // for (let index = 0; index < short.length; index++) {
-    //     // const l = long[index];
-    //     if (short[index] > long[index]) {
-
-    //     }
-    // }
+    const arr3 = Array(arr1.length + arr2.length);
+    let long_index = 0, short_index = 0;
+    let arr3_idx = -1;
     // [1, 2, 3, 4, 5, 8], [3, 6, 7]
-    // [1, 3, ]
-    let idx = 0;
-    while (idx <= ) {
-        
+    // [1, 3], [2, 4]
+    while (long_index <= long.length - 1) {
+        // const s_val = short[short_index];
+        // const l_val = long[long_index];
+        if (short[short_index] >= long[long_index] || short[short_index] === undefined) {
+            arr3[++arr3_idx] = long[long_index];
+            long_index++;
+        }
+        else if (short_index <= short.length - 1) {
+            arr3[++arr3_idx] = short[short_index];
+            short_index++;
+        };
+        // True if everything in shorter array has been
+        // merged into new array
+        // if (short_index >= short.length) {
+        //     // Push everything remaining
+        //     // from: larger array, starting From last checked index "long_index", To last array element. 
+        //     // into: new merged array.
+        //     for (let index = ++long_index; index < long.length-1; index++) {
+        //         arr3[++arr3_idx] = long[index];
+        //     }
+        // }
+        // console.log(s_val, l_val, arr3);
+        console.log(short[short_index], long[long_index], arr3);
     }
+    return arr3;
 };
 
 exports.uniqueArray = function (arr) {
