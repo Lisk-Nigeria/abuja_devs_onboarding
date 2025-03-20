@@ -97,12 +97,25 @@ exports.mergeSortedArrays = function (arr1, arr2) {
 
 exports.uniqueArray = function (arr) {
     // Your implementation here
+    const seen = new Set();
+    // const uArr = Array(arr.length);
+    for (let index = 0; index < arr.length; index++) {
+        if (seen.has(arr[index])) continue;
+        else seen.add(arr[index]);
+    }
+    return Array.from(seen);
 };
 
 exports.countVowels = function (s) {
     // Your implementation here
+    let count = 0
+    for (let index = 0; index < s.length; index++) {
+        if (['a', 'e', 'i', 'o', 'u'].includes(s[index].toLowerCase())) count = count + 1;
+    }
+    return count;
 };
 
 exports.evenOrOdd = function (n) {
     // Your implementation here
+    return n % 2 === 0 ? "even" : "odd";
 };
