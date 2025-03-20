@@ -1,0 +1,19 @@
+{
+  "name": "abuja_devs_onboarding",
+  "version": "1.0.0",
+  "description": "etiosa_submission",
+  "main": "etiosa_submission.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sir-mills/abuja_devs_onboarding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sir-mills/abuja_devs_onboarding/issues"
+  },
+  "homepage": "https://github.com/sir-mills/abuja_devs_onboarding#readme"
+}
