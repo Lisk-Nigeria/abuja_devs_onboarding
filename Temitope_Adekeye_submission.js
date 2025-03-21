@@ -97,13 +97,18 @@ exports.mergeSortedArrays = function (arr1, arr2) {
 
 exports.uniqueArray = function (arr) {
     // Your implementation here
-    const seen = new Set();
+    const seen = new Map();
+    // let uArrIndex = -1;
     // const uArr = Array(arr.length);
     for (let index = 0; index < arr.length; index++) {
         if (seen.has(arr[index])) continue;
-        else seen.add(arr[index]);
+        else {
+            seen.set(arr[index], true);
+            // uArr[++uArrIndex] = arr[index];
+        }
     }
-    return Array.from(seen);
+    // return uArr;
+    return Array.from(seen.keys());
 };
 
 exports.countVowels = function (s) {
